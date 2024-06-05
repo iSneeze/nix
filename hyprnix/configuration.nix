@@ -1,11 +1,12 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports = [ 
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
     ./hardware-configuration.nix
     ./packages.nix
     ./modules/bundle.nix
@@ -31,9 +32,8 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
-  
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   system.stateVersion = "23.11"; # don't touch unless ur gay
 
@@ -44,38 +44,34 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  users.defaultUserShell=pkgs.zsh;
+  users.defaultUserShell = pkgs.zsh;
 
   programs = {
-   zsh = {
+    zsh = {
       enable = true;
       autosuggestions.enable = true;
       zsh-autoenv.enable = true;
       syntaxHighlighting.enable = true;
       ohMyZsh = {
-         enable = true;
-         theme = "robbyrussell";
-         plugins = [
-           "git"
-           "npm"
-           "history"
-           "node"
-           "rust"
-         ];
+        enable = true;
+        theme = "robbyrussell";
+        plugins = [
+          "git"
+          "npm"
+          "history"
+          "node"
+          "rust"
+        ];
       };
-   };
-};
+    };
+  };
 
   # Set your time zone.
-  
 
   # Select internationalisation properties.
 
-
-
   # Configure console keymap
   console.keyMap = "de";
-
 
   services.printing.enable = true;
   services.gvfs.enable = true; # Mount, trash, and other functionalities
@@ -114,7 +110,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
- # Did you read the comment?
+  # Did you read the comment?
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
@@ -139,7 +135,6 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-
 
   hardware.opengl.driSupport = true; # This is already enabled by default
   hardware.opengl.driSupport32Bit = true; # For 32 bit applications
@@ -180,5 +175,4 @@
     underline_shortcut=1
     wheel_scroll_lines=3
   '';
-
 }

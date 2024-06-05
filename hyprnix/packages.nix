@@ -4,7 +4,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-
     # Desktop Apps
     firefox
     discord
@@ -47,7 +46,7 @@
     gnumake
     gcc
     nodejs
-    (python3.withPackages(ps: with ps; [requests]))
+    (python3.withPackages (ps: with ps; [requests]))
     alejandra # nix formatter
 
     # CLI
@@ -107,7 +106,7 @@
     # Sound
     pavucontrol
     pamixer
-    
+
     # GPU
     amdvlk
     rocm-opencl-icd
@@ -120,14 +119,13 @@
     swappy
 
     # Other
-    home-manager    
+    home-manager
     qt5ct
-
   ];
 
   programs.thunar.plugins = with pkgs.xfce; [
-  thunar-archive-plugin
-  thunar-volman
+    thunar-archive-plugin
+    thunar-volman
   ];
 
   nixpkgs = {
@@ -142,10 +140,10 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk 
+    xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
-  
+
   # Steam
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -159,6 +157,6 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 }

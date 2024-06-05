@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.zsh.enable = true;
 
   users = {
@@ -7,7 +7,7 @@
     users.flo = {
       isNormalUser = true;
       description = "Florian";
-      extraGroups = [ "networkmanager" "wheel" "input" "audio" ];
+      extraGroups = ["networkmanager" "wheel" "input" "audio"];
       packages = with pkgs; [];
     };
   };
