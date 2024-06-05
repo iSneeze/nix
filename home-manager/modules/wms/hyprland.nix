@@ -141,7 +141,7 @@
 
       bind = [
         "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
-
+        "$mainMod, F, fullscreen"
         "$mainMod, Return, exec, $terminal"
         "$mainMod, Q, killactive,"
         "$mainMod, M, exit,"
