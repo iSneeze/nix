@@ -1,0 +1,148 @@
+{pkgs, ...}: {
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+
+    # Desktop Apps
+    firefox
+    discord
+    alacritty
+    kitty
+    godot_4
+    blender #-hip
+    krita
+    steam
+    xfce.thunar
+    mullvad-vpn
+    vlc
+    mpv
+    imv
+    prismlauncher
+    libreoffice
+    vscodium
+    parsec-bin
+    audacity
+    nextcloud-client
+    keepassxc
+    obs-studio
+    obs-studio-plugins.obs-vaapi
+    amf-headers
+    spotify
+    zeroadPackages.zeroad-unwrapped
+    thunderbird
+
+    # Coding
+    rustup
+    cargo
+    gnumake
+    gcc
+    nodejs
+    (python3.withPackages(ps: with ps; [requests]))
+
+    # CLI
+    neovim
+    ripgrep
+    streamlink
+    yt-dlp
+    ytarchive
+    ffmpeg-full
+    eza
+    atuin
+    bat
+    btop
+    git
+    fastfetch
+    wget
+    file
+    tree
+    mediainfo
+    cava
+    zip
+    unzip
+    ripgrep
+    meson
+    curl
+    zellij
+    starship
+
+    # GUI utils
+    lxqt.lxqt-policykit
+    rofi-wayland
+    wofi-emoji
+    mako
+    libnotify
+    networkmanagerapplet
+    swaylock
+    ark
+
+    # WM stuff
+    hyprland
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    waybar
+    swww
+    gnome.adwaita-icon-theme
+
+    # Wayland
+    wayland-protocols
+    wayland-utils
+    xwayland
+    xwaylandvideobridge
+    wlroots
+    wl-clipboard
+
+    # Sound
+    pavucontrol
+    pamixer
+    
+    # GPU
+    amdvlk
+    rocm-opencl-icd
+
+    # Screenshotting
+    grim
+    grimblast
+    slurp
+    flameshot
+    swappy
+
+    # Other
+    home-manager    
+    qt5ct
+
+  ];
+
+  programs.thunar.plugins = with pkgs.xfce; [
+  thunar-archive-plugin
+  thunar-volman
+  ];
+
+  nixpkgs = {
+    overlays = [
+      (self: super: {
+        waybar = super.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true" "-Dmpd=enabled"];
+        });
+      })
+    ];
+  };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = with pkgs; [
+    xdg-desktop-portal-gtk 
+    xdg-desktop-portal-hyprland
+  ];
+
+  fonts.packages = with pkgs; [
+    jetbrains-mono
+    noto-fonts
+    noto-fonts-emoji
+    twemoji-color-font
+    font-awesome
+    powerline-fonts
+    powerline-symbols
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+  ];
+}
