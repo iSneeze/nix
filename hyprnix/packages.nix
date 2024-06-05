@@ -13,6 +13,7 @@
     godot_4
     blender #-hip
     krita
+    inkscape
     steam
     xfce.thunar
     mullvad-vpn
@@ -32,6 +33,13 @@
     spotify
     zeroadPackages.zeroad-unwrapped
     thunderbird
+    filezilla
+    kdenlive
+    aseprite
+    heroic
+    lutris
+    logseq
+    bottles
 
     # Coding
     rustup
@@ -40,6 +48,7 @@
     gcc
     nodejs
     (python3.withPackages(ps: with ps; [requests]))
+    alejandra # nix formatter
 
     # CLI
     neovim
@@ -66,6 +75,7 @@
     curl
     zellij
     starship
+    protonup
 
     # GUI utils
     lxqt.lxqt-policykit
@@ -76,6 +86,7 @@
     networkmanagerapplet
     swaylock
     ark
+    mangohud
 
     # WM stuff
     hyprland
@@ -134,6 +145,11 @@
     xdg-desktop-portal-gtk 
     xdg-desktop-portal-hyprland
   ];
+  
+  # Steam
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
 
   fonts.packages = with pkgs; [
     jetbrains-mono
