@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["python-2.7.18.8" "electron-27.3.11"];
+    permittedInsecurePackages = ["python-2.7.18.8" "electron-28.3.3"];
   };
 
   environment.systemPackages = with pkgs; [

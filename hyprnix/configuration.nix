@@ -80,8 +80,6 @@
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
   security.pam.services.swaylock = {};
 
-  hardware.opengl.enable = true;
-
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
 
@@ -136,9 +134,9 @@
     options = "--delete-older-than 30d";
   };
 
-  hardware.opengl.driSupport = true; # This is already enabled by default
-  hardware.opengl.driSupport32Bit = true; # For 32 bit applications
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true; # For 32 bit applications
+  hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
     amdvlk
   ];
