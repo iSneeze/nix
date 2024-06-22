@@ -38,9 +38,9 @@
     settings = {
       add_newline = false;
       format = lib.concatStrings [
-        "$line_break"
+        "$all"
+        "$directory"
         "$package"
-        "$line_break"
         "$character"
       ];
       scan_timeout = 10;

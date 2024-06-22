@@ -5,7 +5,7 @@
     ./env.nix
     ./user.nix
     ./xserver.nix
-    ./nixvim/nixvim.nix
+    #./nixvim/nixvim.nix
     ./hyprland.nix
   ];
 }

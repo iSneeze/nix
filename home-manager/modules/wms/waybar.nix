@@ -7,7 +7,7 @@
         position = "top";
         margin = "9 13 -10 18";
 
-        modules-left = ["hyprland/workspaces" "hyprland/language" "hyprland/submap"];
+        modules-left = ["hyprland/workspaces" "hyprland/language" "keyboard-state" "hyprland/submap"];
         modules-center = ["clock" "custom/weather"];
         modules-right = ["pulseaudio" "custom/mem" "cpu" "tray"];
 
@@ -21,15 +21,15 @@
           tooltip = false;
         };
 
-        # "keyboard-state" = {
-        #     #numlock = true;
-        #     capslock = true;
-        #     format = "{icon} ";
-        #     format-icons = {
-        #         locked = " ";
-        #         unlocked = "";
-        #     };
-        # };
+        "keyboard-state" = {
+          #numlock = true;
+          capslock = true;
+          format = "{icon} ";
+          format-icons = {
+            locked = " ";
+            unlocked = "";
+          };
+        };
 
         "clock" = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";

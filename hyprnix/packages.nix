@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
+    permittedInsecurePackages = ["python-2.7.18.8" "electron-27.3.11"];
   };
 
   environment.systemPackages = with pkgs; [
@@ -30,7 +31,7 @@
     obs-studio-plugins.obs-vaapi
     amf-headers
     spotify
-    zeroadPackages.zeroad-unwrapped
+    zeroad
     thunderbird
     filezilla
     kdenlive
@@ -39,6 +40,7 @@
     lutris
     logseq
     bottles
+    #gparted
 
     # Coding
     rustup
@@ -75,6 +77,7 @@
     zellij
     starship
     protonup
+    dig
 
     # GUI utils
     lxqt.lxqt-policykit
@@ -86,6 +89,8 @@
     swaylock
     ark
     mangohud
+    screenkey
+    gromit-mpx
 
     # WM stuff
     hyprland
@@ -94,6 +99,7 @@
     waybar
     swww
     gnome.adwaita-icon-theme
+    handlr
 
     # Wayland
     wayland-protocols
