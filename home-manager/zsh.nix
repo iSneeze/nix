@@ -21,15 +21,20 @@
       conf = "nvim ${flakeDir}/nixos/configuration.nix";
       pkgs = "nvim ${flakeDir}/nixos/packages.nix";
 
-      ll = "exa -l";
-      la = "exa -al";
+      ls = "eza --icons";
+      ll = "eza --icons -l";
+      la = "eza --icons -al";
       v = "nvim";
       se = "sudoedit";
       ff = "fastfetch";
+      server = "ssh 192.168.2.149";
     };
 
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
+    initExtra = ''
+      eval "$(atuin init zsh)"
+    '';
   };
 
   programs.starship = {

@@ -40,6 +40,9 @@
     lutris
     logseq
     bottles
+    prusa-slicer
+    vesktop
+    alvr
     #gparted
 
     # Coding
@@ -163,6 +166,6 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    (nerdfonts.override {fonts = ["JetBrainsMono"];})
   ];
 }

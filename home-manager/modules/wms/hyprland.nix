@@ -49,8 +49,10 @@
         "col.inactive_border" = "rgba(595959aa)";
 
         layout = "dwindle";
+      };
 
-        no_cursor_warps = true;
+      cursor = {
+        no_warps = true;
       };
 
       decoration = {
@@ -132,9 +134,9 @@
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "lxqt-policykit-agent"
-        "xwaylandvideobridge"
+        # "xwaylandvideobridge"
         "[workspace 3 silent] firefox"
-        "[workspace 1 silent] discord"
+        "[workspace 1 silent] vesktop"
         "nextcloud --background"
         "steam -silent"
       ];
