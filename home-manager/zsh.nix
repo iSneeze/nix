@@ -28,6 +28,7 @@
       se = "sudoedit";
       ff = "fastfetch";
       server = "ssh 192.168.2.149";
+      cat = "bat";
     };
 
     history.size = 10000;

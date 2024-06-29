@@ -7,5 +7,6 @@
     ./env.nix
     ./wms/hyprland.nix
     ./wms/waybar.nix
+    ./starship.nix
   ];
 }
