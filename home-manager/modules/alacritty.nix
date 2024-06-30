@@ -6,19 +6,6 @@
       window.padding.x = 2;
       window.padding.y = 2;
 
-      keyboard.bindings = [
-        {
-          key = "Right";
-          mods = "Alt";
-          chars = "\u001BF";
-        }
-        {
-          key = "Left";
-          mods = "Alt";
-          chars = "\u001BB";
-        }
-      ];
-
       colors.primary = {
         background = "#1d1f21";
         foreground = "#c5c8c6";

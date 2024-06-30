@@ -61,6 +61,7 @@
     yt-dlp
     ytarchive
     ffmpeg-full
+    fzf
     eza
     atuin
     bat

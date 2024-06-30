@@ -92,9 +92,6 @@
         preserve_split = true; # you probably want this
       };
 
-      master = {
-        new_is_master = true;
-      };
 
       # gestures = {
       #   workspace_swipe = true;
