@@ -159,6 +159,10 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
+  # Bitbox
+  hardware.digitalbitbox.enable = true;
+  programs.digitalbitbox.enable = true;
+
   fonts.packages = with pkgs; [
     jetbrains-mono
     noto-fonts
