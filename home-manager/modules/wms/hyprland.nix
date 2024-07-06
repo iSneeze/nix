@@ -17,7 +17,7 @@
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
         "XCURSOR_SIZE,36"
-        "QT_QPA_PLATFORM,wayland"
+        "QT_QPA_PLATFORM,wayland;xcb"
         "XDG_SCREENSHOTS_DIR,~/screens"
         "bitdepth,10"
       ];
@@ -92,7 +92,6 @@
         preserve_split = true; # you probably want this
       };
 
-
       # gestures = {
       #   workspace_swipe = true;
       #   workspace_swipe_fingers = 3;
@@ -112,16 +111,16 @@
       windowrule = [
         "float, ^(imv)$"
         "float, ^(mpv)$"
-        "float,lxqt-policykit-agent"
-        "center,lxqt-policykit-agent"
-        "size 500 500,lxqt-policykit-agent"
+        "float, ^lxqt-policykit-agent$"
+        "center, ^lxqt-policykit-agent$"
+        "size 500 500, ^lxqt-policykit-agent$"
 
-        #Discord Screensharing
-        "opacity 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        "maxsize 1 1,class:^(xwaylandvideobridge)$"
-        "noblur,class:^(xwaylandvideobridge)$"
+        # #Discord Screensharing
+        # "opacity 0.0 override,class:^(xwaylandvideobridge)$"
+        # "noanim,class:^(xwaylandvideobridge)$"
+        # "noinitialfocus,class:^(xwaylandvideobridge)$"
+        # "maxsize 1 1,class:^(xwaylandvideobridge)$"
+        # "noblur,class:^(xwaylandvideobridge)$"
       ];
 
       exec-once = [

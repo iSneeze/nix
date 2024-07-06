@@ -62,7 +62,14 @@
   # Configure console keymap
   console.keyMap = "de";
 
+  # Printing
   services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
   services.mullvad-vpn.enable = true;
@@ -122,6 +129,8 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+  # Xbox Gamepad Driver
+  hardware.xone.enable = true;
 
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true; # For 32 bit applications

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   nixpkgs.config = {
     allowUnfree = true;
-    permittedInsecurePackages = ["python-2.7.18.8" "electron-28.3.3"];
+    permittedInsecurePackages = ["python-2.7.18.8" "electron-28.3.3" "electron-27.3.11"];
   };
 
   environment.systemPackages = with pkgs; [
@@ -75,6 +75,7 @@
     cava
     zip
     unzip
+    usbutils
     ripgrep
     meson
     curl
@@ -82,6 +83,7 @@
     starship
     protonup
     dig
+    spotify-player
 
     # GUI utils
     lxqt.lxqt-policykit
@@ -102,7 +104,7 @@
     xdg-desktop-portal-hyprland
     waybar
     swww
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     handlr
 
     # Wayland
@@ -131,6 +133,8 @@
     # Other
     home-manager
     qt5ct
+    libsForQt5.qtstyleplugins
+    appimage-run
   ];
 
   programs.thunar.plugins = with pkgs.xfce; [
@@ -158,10 +162,6 @@
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
-
-  # Bitbox
-  hardware.digitalbitbox.enable = true;
-  programs.digitalbitbox.enable = true;
 
   fonts.packages = with pkgs; [
     jetbrains-mono
