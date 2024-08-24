@@ -36,7 +36,6 @@
     filezilla
     kdenlive
     aseprite
-    heroic
     lutris
     logseq
     bottles
@@ -53,6 +52,7 @@
     nodejs
     (python3.withPackages (ps: with ps; [requests]))
     alejandra # nix formatter
+    zulu17
 
     # CLI
     neovim
@@ -74,6 +74,7 @@
     mediainfo
     cava
     zip
+    p7zip
     unzip
     usbutils
     ripgrep
@@ -82,8 +83,21 @@
     zellij
     starship
     protonup
+    protontricks
+    wine
+    winetricks
     dig
     spotify-player
+    yazi
+    jq
+    unar
+    ffmpegthumbnailer
+    poppler
+    zoxide
+    cliphist
+    bc
+    glxinfo
+    devenv
 
     # GUI utils
     lxqt.lxqt-policykit
@@ -92,15 +106,21 @@
     mako
     libnotify
     networkmanagerapplet
-    swaylock
     ark
     mangohud
     screenkey
     gromit-mpx
+    opentabletdriver
+    qbittorrent
 
     # WM stuff
     hyprland
-    xdg-desktop-portal-gtk
+    hyprlock
+    hypridle
+    hyprpaper
+    hyprcursor
+    hyprpicker
+    #xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
     waybar
     swww
@@ -112,7 +132,7 @@
     wayland-utils
     xwayland
     xwaylandvideobridge
-    wlroots
+    wl-clip-persist
     wl-clipboard
 
     # Sound

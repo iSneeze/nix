@@ -9,7 +9,7 @@
 
         modules-left = ["hyprland/workspaces" "hyprland/language" "keyboard-state" "hyprland/submap"];
         modules-center = ["clock" "custom/weather"];
-        modules-right = ["pulseaudio" "custom/mem" "cpu" "tray"];
+        modules-right = ["custom/mem" "cpu" "tray"];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -44,27 +44,27 @@
           return-type = "json";
         };
 
-        "pulseaudio" = {
-          # scroll-step = 1; # %, can be a float
-          reverse-scrolling = 1;
-          format = "{volume}% {icon} {format_source}";
-          format-bluetooth = "{volume}% {icon} {format_source}";
-          format-bluetooth-muted = " {icon} {format_source}";
-          format-muted = " {format_source}";
-          format-source = "{volume}% ";
-          format-source-muted = "";
-          format-icons = {
-            headphone = "";
-            hands-free = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
-            default = ["" "" ""];
-          };
-          on-click = "pavucontrol";
-          min-length = 13;
-        };
+        # "pulseaudio" = {
+        #   # scroll-step = 1; # %, can be a float
+        #   reverse-scrolling = 1;
+        #   format = "{volume}% {icon} {format_source}";
+        #   format-bluetooth = "{volume}% {icon} {format_source}";
+        #   format-bluetooth-muted = " {icon} {format_source}";
+        #   format-muted = " {format_source}";
+        #   format-source = "{volume}% ";
+        #   format-source-muted = "";
+        #   format-icons = {
+        #     headphone = "";
+        #     hands-free = "";
+        #     headset = "";
+        #     phone = "";
+        #     portable = "";
+        #     car = "";
+        #     default = ["" "" ""];
+        #   };
+        #   on-click = "pavucontrol";
+        #   min-length = 13;
+        # };
 
         "custom/mem" = {
           format = "{} ";

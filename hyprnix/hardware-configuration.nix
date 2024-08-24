@@ -14,11 +14,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  boot.kernelParams = ["systemd.unified_cgroup_hierarchy=0"];
+  boot.kernelParams = ["systemd.unified_cgroup_hierarchy=1"]; #"radeon.cik_support=0" "amdgpu.cik_support=1"
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd" "amdgpu"];
+  boot.initrd.kernelModules = ["amdgpu"];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
@@ -26,17 +26,17 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt/Storage" = {
-    device = "/dev/disk/by-uuid/2C04-B028";
-    fsType = "exfat";
-    options = ["defaults" "user" "umask=000"];
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/8AFB-DE65";
     fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
   };
 
+  fileSystems."/mnt/Storage" = {
+    device = "/dev/disk/by-uuid/2C04-B028";
+    fsType = "exfat";
+    options = ["defaults" "user" "exec" "uid=1000" "gid=1000" "fmask=0022" "dmask=0022"];
+  };
   swapDevices = [
     {device = "/dev/disk/by-uuid/ce340949-0529-4f7e-bcdf-dcb18a30553c";}
   ];

@@ -16,6 +16,7 @@
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
         "XDG_SESSION_DESKTOP,Hyprland"
+        "WLR_NO_HARDWARE_CURSORS,1"
         "XCURSOR_SIZE,36"
         "QT_QPA_PLATFORM,wayland;xcb"
         "XDG_SCREENSHOTS_DIR,~/screens"
@@ -59,9 +60,9 @@
         rounding = 10;
 
         blur = {
-          enabled = true;
+          enabled = false;
           size = 16;
-          passes = 2;
+          passes = 1;
           new_optimizations = true;
         };
 
@@ -138,7 +139,7 @@
       ];
 
       bind = [
-        "$mainMod, V, exec, cliphist list | wofi --dmenu | cliphist decode | wl-copy"
+        "$mainMod, V, exec, cliphist list | rofi -dmenu -theme solarized -font 'hack 10' | cliphist decode | wl-copy"
         "$mainMod, G, fullscreen, 0"
         "$mainMod, Return, exec, $terminal"
         "$mainMod, Q, killactive,"

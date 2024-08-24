@@ -1,11 +1,10 @@
 {
   services.xserver = {
     enable = true;
-    # windowManager.hyprland.enable = true;
 
     # displayManager = {
     #   autoLogin.enable = true;
-    #   autoLogin.user = "amper";
+    #   autoLogin.user = "flo";
     #   lightdm.enable = true;
     # };
 
@@ -15,7 +14,6 @@
     libinput = {
       enable = true;
       mouse.accelProfile = "flat";
-      #touchpad.accelProfile = "flat";
     };
 
     videoDrivers = ["amdgpu"];

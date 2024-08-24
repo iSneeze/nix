@@ -4,6 +4,7 @@
 {
   config,
   pkgs,
+  quickshell,
   ...
 }: {
   imports = [
@@ -74,10 +75,11 @@
   services.tumbler.enable = true; # Thumbnail support for images
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.package = pkgs.mullvad-vpn;
-  security.pam.services.swaylock = {};
+  security.pam.services.hyprlock = {};
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
+  programs.ssh.startAgent = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -110,34 +112,24 @@
   programs.nix-ld.libraries = with pkgs; [
   ];
 
-  # Enable auto-upgrades
-
-  system.autoUpgrade = {
-    enable = true;
-    #flake = inputs.self.outPath;
-    flags = [
-      "--update-input"
-      "nixpkgs"
-      "-L"
-    ];
-    dates = "9:00";
-    randomizedDelaySec = "45min";
-  };
-
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
   # Xbox Gamepad Driver
   hardware.xone.enable = true;
 
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true; # For 32 bit applications
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   hardware.graphics.extraPackages = with pkgs; [
     rocmPackages.clr.icd
-    amdvlk
   ];
+
+  environment.systemPackages = with pkgs; [lact];
+  systemd.packages = with pkgs; [lact];
+  systemd.services.lactd.wantedBy = ["multi-user.target"];
+
+  hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver.daemon.enable = true;
 
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
